@@ -1,1 +1,120 @@
-Rename file to index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Hanonty 💖</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffc0cb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    text-align: center;
+    color: #4a0033;
+  }
+  .names {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .heart {
+    color: red;
+    font-size: 2em;
+    vertical-align: middle;
+  }
+  .btn {
+    font-size: 1.5em;
+    padding: 15px 40px;
+    border: 2px solid #e60073;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative;
+  }
+  .btn:hover {
+    background-color: rgba(230,0,115,0.1);
+  }
+  .message-container {
+    max-width: 600px;
+    margin-top: 20px;
+    padding: 20px 25px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    display: none;
+    font-size: 1.3em;
+    line-height: 1.6em;
+  }
+  .counter {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="names">ziad <span class="heart">❤️</span> Hanonty</div>
+<button class="btn" id="openBtn">Open My Heart <span class="heart">❤️</span></button>
+
+<div class="message-container" id="message">
+First thing I want to say is that I love you and I can’t live without you ❤<br><br>
+You’re my heart, my world, my soul, and the most precious thing in my life.<br><br>
+We haven’t been talking for a while, but it was never easy for me.<br><br>
+We can get back like before and make up for everything we missed,<br>
+because nothing can ever separate me from my girl 💕<br><br>
+<span class="heart">❤</span> I love you <span class="heart">❤</span>
+</div>
+
+<div class="counter" id="counter"></div>
+
+<audio id="bgMusic" loop>
+  <source src="tamally_maak.mp3" type="audio/mp3">
+  متصفحك لا يدعم تشغيل الصوت.
+</audio>
+
+<script>
+const startDate = new Date("2024-09-26T00:00:00");
+
+function updateCounter() {
+  const now = new Date();
+  let diff = now - startDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  diff -= days * (1000 * 60 * 60 * 24);
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  diff -= hours * (1000 * 60 * 60);
+
+  const minutes = Math.floor(diff / (1000 * 60));
+  diff -= minutes * (1000 * 60);
+
+  const seconds = Math.floor(diff / 1000);
+
+  document.getElementById("counter").textContent =
+    `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds since we met 💕`;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+const btn = document.getElementById("openBtn");
+const message = document.getElementById("message");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click", function() {
+  message.style.display = "block";
+  music.play().catch(err => console.log("تعذر تشغيل الموسيقى:", err));
+});
+</script>
+
+</body>
+</html>
+
+
