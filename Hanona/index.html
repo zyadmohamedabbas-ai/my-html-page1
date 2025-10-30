@@ -110,11 +110,17 @@ const music = document.getElementById("bgMusic");
 
 btn.addEventListener("click", function() {
   message.style.display = "block";
-  music.play().catch(err => console.log("تعذر تشغيل الموسيقى:", err));
+ music.play().then(() => {
+  console.log("✅ الموسيقى اشتغلت");
+}).catch(err => {
+  console.error("❌ تعذر تشغيل الموسيقى", err);
+});
+ 
 });
 </script>
 
 </body>
 </html>
+
 
 
